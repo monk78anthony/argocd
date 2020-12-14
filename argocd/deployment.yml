@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: monk78anthony/myhello:81
+        image: monk78anthony/myhello:82
         imagePullPolicy: Always
         resources:
           requests:
