@@ -156,3 +156,19 @@ spec:
     - name: http-js-api-service
       port: 80
       targetPort: http-js-api
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: juice-shop-api-gateway
+  namespace: micro-shake-factory
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http-juice-shop-api-gateway
+        protocol: HTTP
+      hosts:
+        - juice-shop.istio-succinctly.io
