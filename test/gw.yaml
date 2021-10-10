@@ -193,7 +193,18 @@ metadata:
   name: helloworld-v1
   namespace: micro-shake-factory
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: helloworld
+      version: v1
+  replicas: 2
+  minReadySeconds: 1
+  progressDeadlineSeconds: 600
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
   template:
     metadata:
       labels:
@@ -216,7 +227,18 @@ metadata:
   name: helloworld-v2
   namespace: micro-shake-factory
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: helloworld
+      version: v2
+  replicas: 2
+  minReadySeconds: 1
+  progressDeadlineSeconds: 600
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
   template:
     metadata:
       labels:
