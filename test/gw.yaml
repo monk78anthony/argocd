@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: fruits-api-gateway
+  namespace: micro-shake-factory
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http-fruits-api-gateway
+        protocol: HTTP
+      hosts:
+        - fruits.istio-succinctly.io
