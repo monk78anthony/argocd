@@ -267,7 +267,7 @@ spec:
   - port:
       number: 30000
       name: ntcp
-      protocol: tcp
+      protocol: HTTP
     hosts:
     - "*"
 ---
